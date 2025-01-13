@@ -36,7 +36,7 @@ def registrarUsuario(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Redirecionar após registrar o usuário
+            return redirect('home') 
     else:
         form = UserCreationForm()
     return render(request, 'registrar-usuario.html', {'form': form})
@@ -50,7 +50,7 @@ def login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('home')  # Redirecionar para a página inicial após o login
+                return redirect('home') 
     else:
         form = AuthenticationForm()
     return render(request, 'login-usuario.html', {'form': form})
